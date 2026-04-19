@@ -1,0 +1,19 @@
+{
+  "name": "banyan",
+  "owner": {
+    "name": "Vamitra",
+    "url": "https://banyan.vamitra.com"
+  },
+  "plugins": [
+    {
+      "name": "banyan",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/badriram/banyan-plugin.git"
+      },
+      "description": "Collaborative knowledge graph for teams and AI agents. 37 MCP tools, auto-capture hooks.",
+      "version": "1.0.0",
+      "homepage": "https://banyan.vamitra.com"
+    }
+  ]
+}
