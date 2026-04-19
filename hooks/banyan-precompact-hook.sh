@@ -36,6 +36,6 @@ echo "[$(date '+%H:%M:%S')] PRE-COMPACT triggered for session $SESSION_ID" >> "$
 cat << 'HOOKJSON'
 {
   "decision": "block",
-  "reason": "Context compaction imminent. Call banyan_capture immediately with a comprehensive summary of all uncaptured insights from this session: decisions made, findings discovered, open questions, and any work in progress. Include suggested trunk/branch targets for each capture. This is your last chance to save before context is compressed."
+  "reason": "Context compaction imminent. Save a session handoff leaf NOW to your role branch on the active trunk. If the role branch doesn't exist, create it with banyan_grow_branch. Then banyan_add_leaf with everything: what shipped, what's in progress, what's blocked, open questions, and what the next session should do first. This is your last chance before context is compressed."
 }
 HOOKJSON
