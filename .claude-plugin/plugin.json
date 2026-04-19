@@ -1,6 +1,6 @@
 {
   "name": "banyan",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Collaborative knowledge graph for teams and AI agents. 53 MCP tools, auto-capture hooks, and guided onboarding.",
   "author": {
     "name": "Vamitra"
@@ -12,5 +12,5 @@
     "mcp",
     "team-knowledge"
   ],
-  "repository": "https://github.com/badriram/banyan-plugin"
+  "repository": "https://github.com/badriram/banyan-claude-plugin"
 }

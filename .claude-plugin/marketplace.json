@@ -7,12 +7,6 @@
   "plugins": [
     {
       "name": "banyan",
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/badriram/banyan-claude-plugin.git",
-        "path": ".",
-        "ref": "main"
-      },
       "description": "Collaborative knowledge graph for teams and AI agents. 53 MCP tools, auto-capture hooks.",
       "version": "1.2.0",
       "homepage": "https://banyan.vamitra.com"
