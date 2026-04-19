@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "banyan": {
+      "type": "url",
+      "url": "https://api.banyan.vamitra.com/v1/mcp/auth"
+    }
+  }
+}

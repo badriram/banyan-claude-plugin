@@ -1,17 +1,9 @@
 {
   "name": "banyan",
   "version": "1.0.0",
-  "description": "Collaborative knowledge graph for teams and AI agents. 37 MCP tools, auto-capture hooks, and guided onboarding.",
+  "description": "Collaborative knowledge graph for teams and AI agents. 53 MCP tools, auto-capture hooks, and guided onboarding.",
   "author": {
-    "name": "banyan"
-  },
-  "license": "proprietary",
-  "commands": [],
-  "mcpServers": {
-    "banyan": {
-      "type": "url",
-      "url": "https://mcp.banyan.sh/mcp"
-    }
+    "name": "Vamitra"
   },
   "keywords": [
     "knowledge-graph",
