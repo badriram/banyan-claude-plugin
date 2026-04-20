@@ -29,7 +29,7 @@
 #
 # === CONFIGURATION ===
 
-SAVE_INTERVAL=10  # Capture every N human messages (adjust to taste)
+SAVE_INTERVAL=30  # Capture every N human messages (adjust to taste)
 STATE_DIR="$HOME/.banyan/hook_state"
 mkdir -p "$STATE_DIR"
 
