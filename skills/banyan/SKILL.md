@@ -13,7 +13,7 @@ A collaborative knowledge graph where knowledge grows like a banyan tree.
 - **Trunk**: A topic or question being explored (like a repo)
 - **Branch**: A sub-topic or angle within a trunk (like a folder)
 - **Leaf**: Atomic content — text, code, equations, data, goals, decisions (like a file)
-- **Connection**: Typed relationship between any two nodes
+- **Connection**: Link between any two nodes with a rationale explaining why
 - **Capture**: Quick inbox draft for later review and promotion
 
 ## Workflow Pattern
