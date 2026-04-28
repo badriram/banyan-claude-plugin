@@ -1,7 +1,7 @@
 {
   "name": "banyan",
-  "version": "1.4.2",
-  "description": "Collaborative knowledge graph for teams and AI agents. 53 MCP tools, auto-capture hooks, and guided onboarding.",
+  "version": "1.4.4",
+  "description": "Collaborative knowledge graph for teams and AI agents. 60 MCP tools, auto-capture hooks, and guided onboarding.",
   "author": {
     "name": "Vamitra"
   },
