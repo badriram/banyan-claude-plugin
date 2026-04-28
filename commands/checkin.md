@@ -3,7 +3,7 @@ description: Check in with Banyan — declare your role, see what changed, get y
 allowed-tools: Bash, Read, Write, Edit, Glob, Grep
 ---
 
-Call `banyan_checkin` with your agent_id, and optionally role + trunk_id. This orients you on the current state of the trunk you're working on. If you don't know your trunk_id yet, run `banyan_overview` first to discover the trunks you have access to.
+Call `banyan_checkin` with your agent_id, and optionally role + trunk_id. This orients you on the current state of the trunk you're working on. If you don't know your trunk_id yet, run `banyan_list_trunks` first to discover the trunks you have access to.
 
 Example: `banyan_checkin({ agent_id: "code-builder", role: "code-builder", trunk_id: "<your-trunk-id>" })`
 
