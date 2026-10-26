@@ -64,7 +64,7 @@ Once confirmed, ask which trunk (suggest one if obvious from context). Then writ
 2. **Domain branches** — `banyan_grow_branch(trunk_id, title, description)` per domain
 3. **KR leaves** — `banyan_add_leaf(parent_id: <branch_id>, parent_type: "branch", type: "kr", content: '{"target":"...","current":"not started","status":"not-started"}', agent_id: "goal-discovery")`
 4. **Work items** — `banyan_add_leaf(parent_id: <branch_id>, parent_type: "branch", type: "work_item", content: '{"description":"...","acceptance_criteria":"...","status":"open","complexity":"standard"}', agent_id: "goal-discovery")`
-5. **Connections** — `banyan_connect(source, target, rationale)`:
+5. **Connections** — `banyan_connect(source_node, target_node, rationale)`:
    - goal → each domain branch (rationale: "Goal domain: <name>")
    - each domain branch → its KR (rationale: "KR: <target>")
    - each KR → its work items (rationale: "Work for: <KR target>")

@@ -1,11 +1,11 @@
 # Banyan Claude Code Plugin
 
-> **Source of truth** for plugin development. Distribution copies are generated into `web/public/plugins/banyan/` and deployed to `https://banyan.vamitra.com/plugins/` via S3 + CloudFront.
+> **Source of truth** for plugin development. The main Banyan repo pins this repo as a git submodule at `banyan-claude-plugin/`.
 
 Collaborative knowledge graph for teams and AI agents. This plugin provides:
 
-- **37 MCP tools** for reading, writing, and navigating the knowledge graph
-- **Auto-capture hooks** that save session insights before they're lost
+- **The Banyan MCP server** for reading, writing, and navigating the knowledge graph
+- **Diary hooks** that save session insights before they're lost
 - **Slash commands** for quick access to common operations
 
 ## Installation
@@ -23,13 +23,13 @@ Add to your `.mcp.json`:
   "mcpServers": {
     "banyan": {
       "type": "url",
-      "url": "https://mcp.banyan.sh/mcp"
+      "url": "https://api.banyan.vamitra.com/mcp/auth"
     }
   }
 }
 ```
 
-To enable auto-capture hooks, add to `.claude/settings.local.json`:
+To enable the diary hooks, add to `.claude/settings.local.json`:
 
 ```json
 {
@@ -38,14 +38,14 @@ To enable auto-capture hooks, add to `.claude/settings.local.json`:
       "matcher": "*",
       "hooks": [{
         "type": "command",
-        "command": "bash /path/to/.claude-plugin/hooks/banyan-save-hook.sh",
+        "command": "bash /path/to/banyan-claude-plugin/hooks/banyan-save-hook.sh",
         "timeout": 30
       }]
     }],
     "PreCompact": [{
       "hooks": [{
         "type": "command",
-        "command": "bash /path/to/.claude-plugin/hooks/banyan-precompact-hook.sh",
+        "command": "bash /path/to/banyan-claude-plugin/hooks/banyan-precompact-hook.sh",
         "timeout": 30
       }]
     }]
@@ -56,12 +56,13 @@ To enable auto-capture hooks, add to `.claude/settings.local.json`:
 ## Commands
 
 - `/banyan:checkin` — Check in with Banyan, get context for your session
-- `/banyan:capture` — Save insights from this conversation
+- `/banyan:capture` — Save an insight from this conversation to your diary
 - `/banyan:status` — Overview of your knowledge graph
 
 ## Hooks
 
-- **Save Hook** (Stop event): Every 10 human messages, prompts the AI to call `banyan_capture` with session insights. Captures go to your inbox as drafts for human review.
-- **Pre-Compact Hook** (PreCompact event): Before context window compression, forces an emergency capture of all uncaptured insights.
+- **Startup Hook** (SessionStart event): prompts the AI to check in and read its diary.
+- **Save Hook** (Stop event): Every 30 human messages, prompts the AI to call `banyan_checkin` with a `diary_entry`. Diary entries are append-only, scoped to (user, agent_id, trunk_id), and resurface on the next session start.
+- **Pre-Compact Hook** (PreCompact event): Before context window compression, prompts for a final `diary_entry` plus a `handoff` summary.
 
-Both hooks preserve Banyan's deliberate authorship model — nothing is auto-promoted to the graph. You review and promote captures from your inbox.
+The hooks preserve Banyan's deliberate authorship model — the AI writes each entry itself; nothing is auto-ingested into the graph.
