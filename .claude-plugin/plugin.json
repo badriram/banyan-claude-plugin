@@ -1,6 +1,6 @@
 {
   "name": "banyan",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Collaborative knowledge graph for teams and AI agents. 60+ MCP tools, persistent per-trunk agent diaries (Memento polaroid wall surviving across sessions), auto-capture hooks, and guided onboarding.",
   "author": {
     "name": "Vamitra"

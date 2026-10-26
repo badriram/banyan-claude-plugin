@@ -1,8 +1,8 @@
 ---
-description: Capture insights from this session to your Banyan inbox for later review.
+description: Capture insights from this session to your Banyan diary.
 allowed-tools: Bash, Read, Write, Edit, Glob, Grep
 ---
 
-Call `banyan_capture` with the key insights, decisions, or findings from this conversation. Captures go to your inbox as drafts — you review and promote the useful ones to actual leaves later.
+Call `banyan_checkin` with `agent_id`, `trunk_id`, and a `diary_entry` capturing the key insight, decision, or finding from this conversation. Diary entries are append-only, scoped to your (user, agent_id, trunk_id), and resurface on the next `banyan_checkin({ session_start: true })`.
 
-Include `context` describing what trunk/branch the capture relates to, and `suggested_trunk` if you know where it belongs.
+Keep each entry specific and under 4KB (the server rejects oversize entries). Use the trunk you've been working on — omitting `trunk_id` writes nothing. Do not pass `handoff` here; that is the end-of-session summary.

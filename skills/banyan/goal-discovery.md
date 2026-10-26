@@ -98,7 +98,7 @@ Then write everything using Banyan MCP tools:
    banyan_add_leaf(parent_id: <branch_id>, parent_type: "branch", type: "work_item", content: '{"description": "...", "acceptance_criteria": "...", "status": "open", "complexity": "standard"}', summary: "<work item>", agent_id: "goal-discovery")
    ```
 
-5. **Connections** — `banyan_connect(source, target, rationale)` to link the structure
+5. **Connections** — `banyan_connect(source_node, target_node, rationale)` to link the structure
    - goal leaf → each domain branch (rationale: "Goal domain: <name>")
    - each domain branch → its KR leaf (rationale: "KR: <target>")
    - each KR leaf → its work items (rationale: "Work for: <KR target>")

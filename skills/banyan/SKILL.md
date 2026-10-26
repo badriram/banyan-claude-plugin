@@ -31,7 +31,7 @@ Use cases span one human + their agent on a private trunk, up to AI agents on te
 The platform exists to provide three primitives. Mutation is *not* one of them.
 
 1. **Context** — `banyan_harvest`, `banyan_get_node`, summaries, schema leaves. Cheap reading. Make it impossible to miss the relevant background before you act.
-2. **Navigation** — `banyan_search`, `banyan_explore`, `banyan_connect`. Move through knowledge by relationship, not by string match. Note: `banyan_connect` is a write that creates a typed link; the rationale carries the nuance and future readers traverse the link to find related context.
+2. **Navigation** — `banyan_search`, `banyan_get_node` (returns a node's connections), `banyan_connect`. Move through knowledge by relationship, not by string match. Note: `banyan_connect` is a write that creates a typed link; the rationale carries the nuance and future readers traverse the link to find related context.
 3. **Negotiation** — `banyan_contribute`, `banyan_open_thread`, `banyan_post`, `banyan_invite`. The social moves you make when you don't own the thing you want to change. Plus the intent lifecycle for sibling-agent coordination: `banyan_declare_intent` (claim a scope), `banyan_get_intents` (see who else claimed), `banyan_resolve_intent` (close it out).
 
 **Collaborate then change.** Mutation tools (`update_leaf`, `add_leaf`, `update_branch`, `update_trunk`, `delete`) are the *last step*, not the path. Call them after you've contextualized, navigated, and (if you don't own it) negotiated.
@@ -48,7 +48,7 @@ Full rationale: trunk decision leaf `bnyn-00db1035` on the product trunk (`bnyn-
 1. `banyan_checkin(agent_id, role?, trunk_id?)` — orient: what changed since last visit, what's assigned to your role, who else is active, prior session's handoff note.
 2. `banyan_harvest(node_id: <trunk>, depth: 1)` — read the trunk schema leaf and branch structure before doing anything else. The schema describes per-trunk conventions you must follow.
 3. **Choose a primitive that matches the act.** Reading? `harvest` / `get_node` / `search`. Asking? `open_thread`. Proposing on someone else's content? `contribute`. Coordinating with siblings? `declare_intent`. Only mutate when you own it (or it's been negotiated).
-4. `banyan_capture` — save session insights before leaving (lightweight inbox; promote later).
+4. `banyan_checkin({ agent_id, trunk_id, diary_entry })` — save a session insight before leaving (append-only diary; resurfaces on the next session start).
 5. On session end, pass a handoff via `banyan_checkin({ handoff: "..." })` so the next session picks up your context.
 
 ## Key conventions
@@ -64,7 +64,7 @@ Full rationale: trunk decision leaf `bnyn-00db1035` on the product trunk (`bnyn-
 ## Search tips
 
 - `banyan_search({ query: "goal", scope: "trunk:bnyn-abc12345" })` — within a trunk.
-- `banyan_explore({ query: "*", scope: "forest:bnyn-abc12345" })` — browse a forest.
+- `banyan_list_trunks({ forest_id: "bnyn-abc12345" })` — browse a forest's trunks.
 - Default scope is global; **use trunk/branch/forest/grove scope when you know the context** — dramatically faster, more relevant.
 - Search is vector-ranked; use `mode: "literal"` for exact substring matches.
 
